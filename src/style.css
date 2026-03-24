@@ -366,14 +366,37 @@ h1, h2, h3 {
 }
 
 .modal-content {
-    background: var(--glass-bg);
+    background: rgba(10, 10, 20, 0.95);
     border: 1px solid var(--glass-border);
-    padding: 3rem;
+    padding: 2.5rem;
     border-radius: 24px;
-    max-width: 500px;
+    max-width: 650px;
     width: 90%;
+    max-height: 90vh;
     position: relative;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8), 0 0 20px rgba(69, 170, 242, 0.2);
+}
+
+.modal-body {
+    overflow-y: auto;
+    padding-right: 15px;
+    margin-bottom: 1rem;
+}
+
+.modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: transparent;
 }
 
 .modal-close {
