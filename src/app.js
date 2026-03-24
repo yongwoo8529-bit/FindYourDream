@@ -164,16 +164,29 @@ function initThreeJS(polarisColor, specialType) {
     renderer.setPixelRatio(window.devicePixelRatio);
     container.appendChild(renderer.domElement);
 
-    const geometry = new THREE.SphereGeometry(specialType === 'silence' ? 0.2 : 0.5, 32, 32);
+    const geometry = new THREE.SphereGeometry(specialType === 'silence' ? 0.25 : 0.5, 32, 32);
     const material = new THREE.MeshBasicMaterial({ color: polarisColor, transparent: true, opacity: 0.9 });
     centralPolaris = new THREE.Mesh(geometry, material);
     scene.add(centralPolaris);
 
+    // Add a small white core for silence to make it visible
+    if (specialType === 'silence') {
+        const innerCore = new THREE.Mesh(
+            new THREE.SphereGeometry(0.1, 16, 16),
+            new THREE.MeshBasicMaterial({ color: 0xffffff })
+        );
+        centralPolaris.add(innerCore);
+    }
+
     const spriteMaterial = new THREE.SpriteMaterial({
-        map: generateGlowTexture(polarisColor), color: polarisColor, transparent: true, blending: THREE.AdditiveBlending, opacity: 0.8
+        map: generateGlowTexture(specialType === 'silence' ? 0x5d6d7e : polarisColor),
+        color: specialType === 'silence' ? 0xffffff : polarisColor, 
+        transparent: true, 
+        blending: THREE.AdditiveBlending, 
+        opacity: specialType === 'silence' ? 0.7 : 0.8
     });
     const sprite = new THREE.Sprite(spriteMaterial);
-    sprite.scale.set(specialType === 'silence' ? 3 : 6, specialType === 'silence' ? 3 : 6, 1);
+    sprite.scale.set(specialType === 'silence' ? 5 : 6, specialType === 'silence' ? 5 : 6, 1);
     centralPolaris.add(sprite);
 
     // Save special type to polaris for later
