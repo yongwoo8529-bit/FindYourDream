@@ -255,15 +255,34 @@ function explodeToGalaxies(specialType) {
     const colorInt = galaxyColors[maxPart - 1];
     const normalizedScore = (score - 4) / 16;
 
-    const finalPlanetGeom = new THREE.SphereGeometry(specialType === 'silence' ? 0.3 : (1.5 + normalizedScore * 1.5), 64, 64);
+    // INCREASED SIZE FOR SILENCE: from 0.3 to 1.2
+    const finalPlanetGeom = new THREE.SphereGeometry(specialType === 'silence' ? 1.2 : (1.5 + normalizedScore * 1.5), 64, 64);
     const finalPlanetMat = new THREE.MeshBasicMaterial({ color: colorInt, transparent: true, opacity: 0, map: centralPolaris.material.map });
     const finalPlanet = new THREE.Mesh(finalPlanetGeom, finalPlanetMat);
     scene.add(finalPlanet);
 
+    // ADD INNER WHITE CORE FOR SILENCE
+    if (specialType === 'silence') {
+        const coreGeom = new THREE.SphereGeometry(0.3, 32, 32);
+        const coreMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0 });
+        const coreMesh = new THREE.Mesh(coreGeom, coreMat);
+        finalPlanet.add(coreMesh);
+        
+        const coreGlow = new THREE.Sprite(new THREE.SpriteMaterial({
+            map: generateGlowTexture(0xffffff), color: 0xffffff, transparent: true, opacity: 0, blending: THREE.AdditiveBlending
+        }));
+        coreGlow.scale.set(3, 3, 1);
+        coreMesh.add(coreGlow);
+
+        gsap.to(coreMat, { opacity: 1, duration: 2, delay: 0.5 });
+        gsap.to(coreGlow.material, { opacity: 0.8, duration: 2, delay: 0.5 });
+        gsap.to(coreGlow.scale, { x: 4, y: 4, duration: 2, repeat: -1, yoyo: true, ease: "sine.inOut" });
+    }
+
     const glow1 = new THREE.Sprite(new THREE.SpriteMaterial({
         map: generateGlowTexture(colorInt), color: 0xffffff, transparent: true, opacity: 0, blending: THREE.AdditiveBlending
     }));
-    glow1.scale.set(specialType === 'silence' ? 4 : 15, specialType === 'silence' ? 4 : 15, 1);
+    glow1.scale.set(specialType === 'silence' ? 8 : 15, specialType === 'silence' ? 8 : 15, 1);
     finalPlanet.add(glow1);
 
     const mainGalaxy = createGalaxy(colorInt, score, specialType);
