@@ -330,8 +330,9 @@ function explodeToGalaxies(specialType) {
                 북극성은 모든 방향에서 빛나며 새로운 우주를 창조합니다.<br>
                 당신은 모든 가능성을 가진 축복받은 존재입니다.<br>
                 ${introText}
-                <div style="margin-top: 1.5rem; font-size: 0.85em; color: #f9ca24; font-weight: bold; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;">
-                    ✨ 북극성을 클릭해 당신의 눈부신 재능을 확인하세요!
+                <div style="margin-top: 1.5rem; font-size: 0.85em; color: #26de81; font-weight: bold; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; line-height: 1.8;">
+                    ✨ 북극성을 클릭해 당신의 숨겨진 재능을 찾으세요!<br>
+                    ✨ 360도로 화면을 돌리며 자신이 만든 자신만의 북극성을 관찰하세요.
                 </div>
             `;
         } else if (specialType === 'silence') {
@@ -339,8 +340,9 @@ function explodeToGalaxies(specialType) {
                 가장 어두운 밤이 지나야 가장 밝은 새벽이 옵니다.<br>
                 지금의 고요함은 당신이 더 멀리 도약하기 위한 준비 단계일 뿐입니다.<br>
                 ${introText}
-                <div style="margin-top: 1.5rem; font-size: 0.85em; color: #7f8c8d; font-weight: bold; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;">
-                    ✨ 작은 빛을 클릭해 당신의 내면의 목소리를 들어보세요.
+                <div style="margin-top: 1.5rem; font-size: 0.85em; color: #26de81; font-weight: bold; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; line-height: 1.8;">
+                    ✨ 작은 빛을 클릭해 당신의 내면의 목소리를 들어보세요.<br>
+                    ✨ 360도로 화면을 돌리며 자신이 만든 자신만의 북극성을 관찰하세요.
                 </div>
             `;
         } else {
