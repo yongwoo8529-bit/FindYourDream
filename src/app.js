@@ -255,15 +255,15 @@ function explodeToGalaxies(specialType) {
     const colorInt = galaxyColors[maxPart - 1];
     const normalizedScore = (score - 4) / 16;
 
-    // INCREASED SIZE FOR SILENCE: from 0.3 to 1.2
-    const finalPlanetGeom = new THREE.SphereGeometry(specialType === 'silence' ? 1.2 : (1.5 + normalizedScore * 1.5), 64, 64);
+    // EVEN LARGER SIZE FOR SILENCE: from 1.2 to 2.5
+    const finalPlanetGeom = new THREE.SphereGeometry(specialType === 'silence' ? 2.5 : (1.5 + normalizedScore * 1.5), 64, 64);
     const finalPlanetMat = new THREE.MeshBasicMaterial({ color: colorInt, transparent: true, opacity: 0, map: centralPolaris.material.map });
     const finalPlanet = new THREE.Mesh(finalPlanetGeom, finalPlanetMat);
     scene.add(finalPlanet);
 
     // ADD INNER WHITE CORE FOR SILENCE
     if (specialType === 'silence') {
-        const coreGeom = new THREE.SphereGeometry(0.3, 32, 32);
+        const coreGeom = new THREE.SphereGeometry(0.6, 32, 32);
         const coreMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0 });
         const coreMesh = new THREE.Mesh(coreGeom, coreMat);
         finalPlanet.add(coreMesh);
@@ -271,18 +271,18 @@ function explodeToGalaxies(specialType) {
         const coreGlow = new THREE.Sprite(new THREE.SpriteMaterial({
             map: generateGlowTexture(0xffffff), color: 0xffffff, transparent: true, opacity: 0, blending: THREE.AdditiveBlending
         }));
-        coreGlow.scale.set(3, 3, 1);
+        coreGlow.scale.set(6, 6, 1);
         coreMesh.add(coreGlow);
 
         gsap.to(coreMat, { opacity: 1, duration: 2, delay: 0.5 });
         gsap.to(coreGlow.material, { opacity: 0.8, duration: 2, delay: 0.5 });
-        gsap.to(coreGlow.scale, { x: 4, y: 4, duration: 2, repeat: -1, yoyo: true, ease: "sine.inOut" });
+        gsap.to(coreGlow.scale, { x: 8, y: 8, duration: 2, repeat: -1, yoyo: true, ease: "sine.inOut" });
     }
 
     const glow1 = new THREE.Sprite(new THREE.SpriteMaterial({
         map: generateGlowTexture(colorInt), color: 0xffffff, transparent: true, opacity: 0, blending: THREE.AdditiveBlending
     }));
-    glow1.scale.set(specialType === 'silence' ? 8 : 15, specialType === 'silence' ? 8 : 15, 1);
+    glow1.scale.set(specialType === 'silence' ? 12 : 15, specialType === 'silence' ? 12 : 15, 1);
     finalPlanet.add(glow1);
 
     const mainGalaxy = createGalaxy(colorInt, score, specialType);
@@ -290,13 +290,13 @@ function explodeToGalaxies(specialType) {
     starSystems.push(mainGalaxy);
 
     const radiusScale = 1.5 + normalizedScore * 8;
-    const hitbox = new THREE.Mesh(new THREE.SphereGeometry(specialType === 'silence' ? 1 : radiusScale * 0.7, 8, 8), new THREE.MeshBasicMaterial({ visible: false }));
+    const hitbox = new THREE.Mesh(new THREE.SphereGeometry(specialType === 'silence' ? 2 : radiusScale * 0.7, 8, 8), new THREE.MeshBasicMaterial({ visible: false }));
     hitbox.userData = { partId: maxPart };
     scene.add(hitbox);
     selectableGalaxies.push(hitbox);
 
     setTimeout(() => {
-        gsap.to(finalPlanetMat, { opacity: specialType === 'silence' ? 0.5 : 0.9, duration: 2 });
+        gsap.to(finalPlanetMat, { opacity: specialType === 'silence' ? 0.3 : 0.9, duration: 2 });
         gsap.to(glow1.material, { opacity: specialType === 'silence' ? 0.3 : 0.7, duration: 3 });
         gsap.to(finalPlanet.scale, { x: 1, y: 1, z: 1, duration: 3, ease: "back.out(1.2)" });
         gsap.to(mainGalaxy.scale, { x: 1, y: 1, z: 1, duration: 5, ease: "power2.out" });
@@ -304,29 +304,28 @@ function explodeToGalaxies(specialType) {
 
         document.getElementById("result-title").innerText = specialType === 'prism' ? "🌈 당신은 모든 빛을 품은 프리즘입니다!" : (specialType === 'silence' ? "🌑 당신의 우주는 지금 깊은 정적 속에 있습니다." : "당신만의 북극성이 나타났습니다!");
         
+        const introText = `
+            <span style="font-size: 0.85em; opacity: 0.8; line-height: 1.6; display: block; margin-top: 1rem; text-align: left; background: rgba(255,255,255,0.05); padding: 1.2rem; border-radius: 10px;">
+                제가 이 앱을 만든 이유는 많은 청소년 어린이들이 자신들이 하고 싶은 것을 모르거나 알지만 공부라는 벽에 의해 하지 못하는 것을 봐왔기 때문입니다.<br>
+                북극성은 자신만의 길을 개척해 홀로 빛납니다. 여러분들도 공부 스트레스 받지 말고 꼭 하고 싶은 걸 하셨으면 좋겠습니다.
+            </span>
+        `;
+
         let descHtml = "";
         if (specialType === 'prism') {
-            const data = galaxyDetails[6];
             descHtml = `
                 북극성은 모든 방향에서 빛나며 새로운 우주를 창조합니다.<br>
-                당신은 모든 가능성을 가진 축복받은 존재입니다.<br><br>
-                <div style="text-align: left; background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 15px; margin-top: 1rem; border-left: 4px solid #f9ca24;">
-                    <p style="margin-bottom: 1rem; line-height: 1.6; opacity: 0.9;">${data.core}</p>
-                    <p style="font-weight: bold; color: #f9ca24; line-height: 1.6;">✨ ${data.moment}</p>
-                </div>
+                당신은 모든 가능성을 가진 축복받은 존재입니다.<br>
+                ${introText}
                 <div style="margin-top: 1.5rem; font-size: 0.85em; color: #f9ca24; font-weight: bold; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;">
                     ✨ 북극성을 클릭해 당신의 눈부신 재능을 확인하세요!
                 </div>
             `;
         } else if (specialType === 'silence') {
-            const data = galaxyDetails[7];
             descHtml = `
                 가장 어두운 밤이 지나야 가장 밝은 새벽이 옵니다.<br>
-                지금의 고요함은 당신이 더 멀리 도약하기 위한 준비 단계일 뿐입니다.<br><br>
-                <div style="text-align: left; background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 15px; margin-top: 1rem; border-left: 4px solid #7f8c8d;">
-                    <p style="margin-bottom: 1rem; line-height: 1.6; opacity: 0.9;">${data.core}</p>
-                    <p style="font-weight: bold; color: #bdc3c7; line-height: 1.6;">✨ ${data.moment}</p>
-                </div>
+                지금의 고요함은 당신이 더 멀리 도약하기 위한 준비 단계일 뿐입니다.<br>
+                ${introText}
                 <div style="margin-top: 1.5rem; font-size: 0.85em; color: #7f8c8d; font-weight: bold; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;">
                     ✨ 작은 빛을 클릭해 당신의 내면의 목소리를 들어보세요.
                 </div>
