@@ -1,13 +1,13 @@
 // questions.js (Internal Question Data)
 const questions = [
     // Part 1
-    { part: 1, text: "나는 새로운 기계나 앱이 나오면 누구보다 먼저 사용법을 알아내고 싶다.", title: "탐구의 은하 (보라색)" },
+    { part: 1, text: "나는 새로운 게임이나 앱이 나오면 누구보다 먼저 사용법을 알아내고 싶다.", title: "탐구의 은하 (보라색)" },
     { part: 1, text: "영화나 드라마를 볼 때 줄거리보다 '저건 어떻게 촬영했을까?' 같은 원리가 더 궁금하다.", title: "탐구의 은하 (보라색)" },
     { part: 1, text: "궁금한 것이 생기면 밥 먹는 것도 잊고 끝까지 검색해서 찾아내는 편이다.", title: "탐구의 은하 (보라색)" },
     { part: 1, text: "나는 눈에 보이는 사실보다, 보이지 않는 우주나 미래의 이야기에 더 가슴이 뛴다.", title: "탐구의 은하 (보라색)" },
     // Part 2
     { part: 2, text: "내 물건들이 정해진 자리에 깔끔하게 놓여 있을 때 마음이 아주 편안하다.", title: "질서의 은하 (청색)" },
-    { part: 2, text: "어려운 수학 문제를 풀거나 복잡한 퍼즐을 맞출 때 기분 좋은 긴장감을 느낀다.", title: "질서의 은하 (청색)" },
+    { part: 2, text: "어려운 수학 문제를 풀거나 복잡한 퍼즐을 맞출 때 도파민이 터진다.", title: "질서의 은하 (청색)" },
     { part: 2, text: "계획 없이 갑자기 결정된 약속보다는, 미리 짜여진 일정대로 움직이는 것이 좋다.", title: "질서의 은하 (청색)" },
     { part: 2, text: "나는 여러 가지 일을 동시에 하는 것보다, 한 가지를 순서대로 끝내는 것을 잘한다.", title: "질서의 은하 (청색)" },
     // Part 3
@@ -517,7 +517,7 @@ const galaxyDetails = {
         tagline: "새로운 폭발을 기다리는 깊고 신비로운 성운", 
         core: "지금 너의 밤하늘은 아주 깊은 고요함 속에 잠겨 있네. 혹시 '나에게 어울리는 게 정말 있을까?'라고 고민하고 있니? 아니면 세상이 정해놓은 뻔한 질문들이 너의 진짜 모습을 담지 못하고 있는 걸지도 몰라.", 
         moment: "별은 가장 어두운 밤에 더 잘 보이는 법이야. 지금 모든 질문에 '아니요'라고 답한 건, 네가 남들이 좋다는 길을 무작정 따라가지 않는 단단한 주관을 가졌기 때문일 거야. 아직 네 북극성이 구름에 가려져 보이지 않을 뿐, 너만의 우주는 네 안에서 조용히 태어날 준비를 하고 있어. 조급해하지 마. 침묵 끝에 찾아올 너만의 진짜 목소리를 기다려줄게.",
-        jobs: "독립 예술가, 철학자, 순수 수학자, 소설가, 고고학 연구원, 천체 관측가, 장인(Craftsman), 명상 가이드, 야생 동물 연구가, 고문서 복원가, 시인, 정원사(가드너), 사운드 디자이너, 환경 보호 활동가, 분석 철학자, 고전 번역가, 숲 해설가, 조형 예술가, 기록학자, 나만의 길을 걷는 1인 기업가"
+        jobs: ""
     }
 };
 
@@ -527,7 +527,18 @@ function showGalaxyDetails(partId) {
     document.getElementById("modal-tagline").innerText = `"${data.tagline}"`;
     document.getElementById("modal-core").innerText = data.core;
     document.getElementById("modal-moment").innerText = data.moment;
-    document.getElementById("modal-jobs").innerText = data.jobs;
+    
+    const jobsEl = document.getElementById("modal-jobs");
+    const jobsTitle = jobsEl.previousElementSibling; // The <h3> tag
+    if (data.jobs) {
+        jobsEl.innerText = data.jobs;
+        jobsEl.style.display = "block";
+        jobsTitle.style.display = "block";
+    } else {
+        jobsEl.style.display = "none";
+        jobsTitle.style.display = "none";
+    }
+
     document.getElementById("modal-disclaimer").innerText = "추천 직업은 추천일 뿐입니다 이 사이트로 자신의 진짜 내면을 발견하고 원하는 것을 찾으셨으면 좋겠습니다";
     document.getElementById("galaxy-modal").classList.add("active");
 }
