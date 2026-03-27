@@ -1,5 +1,16 @@
 import { defineConfig } from 'vite'
+import { resolve } from 'path'
 
 export default defineConfig({
   base: './',
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        polaris: resolve(__dirname, 'polaris.html'),
+        bigbang: resolve(__dirname, 'bigbang.html'),
+        horoscope: resolve(__dirname, 'horoscope.html')
+      }
+    }
+  }
 })

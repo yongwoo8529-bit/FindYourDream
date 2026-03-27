@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POLARIS - 오늘의 북극성 운세</title>
+    <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+    <canvas id="stars-bg"></canvas>
+    <div class="app-container">
+        <header class="nav">
+            <div class="logo" onclick="location.href='index.html'" style="cursor: pointer;">POLARIS</div>
+        </header>
+
+        <section class="section active" style="align-items: center; justify-content: center; height: 80vh;">
+            <h1>오늘의 북극성 운세 확인 하기</h1>
+            <p style="text-align: center; color: rgba(255,255,255,0.8);">운세 보기 기능이 이곳에 구현될 예정입니다.</p>
+            <button class="btn-start" style="margin-top:2rem;" onclick="location.href='index.html'">메인으로 돌아가기</button>
+        </section>
+    </div>
+    <script>
+        const canvas = document.getElementById('stars-bg');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            const resizeCanvas = () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            };
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            for (let i = 0; i < 200; i++) {
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.random()})`;
+                ctx.beginPath();
+                ctx.arc(Math.random() * canvas.width, Math.random() * canvas.height, Math.random() * 1.5, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+    </script>
+</body>
+</html>
