@@ -8,8 +8,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         polaris: resolve(__dirname, 'polaris.html'),
-        bigbang: resolve(__dirname, 'bigbang.html'),
-        horoscope: resolve(__dirname, 'horoscope.html')
+        bigbang: resolve(__dirname, 'bigbang.html')
       }
     }
   }
