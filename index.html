@@ -175,6 +175,9 @@
             filter: blur(20px);
             opacity: 0;
             transition: filter 1.5s ease, opacity 1.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .app-loaded {
             filter: blur(0);
@@ -204,6 +207,11 @@
             <p style="text-align: center; color: rgba(255, 255, 255, 0.8);">어느 여정으로 떠나시겠습니까?</p>
             
             <div class="menu-btn-container">
+                <button class="sci-fi-btn about-btn" onclick="location.href='about.html'" style="margin-bottom: 0.5rem; border-color: rgba(255, 255, 255, 0.3);">
+                    <span class="btn-idx">DEST. 00</span>
+                    북극성이란?
+                    <span class="btn-deco">[PROJECT MISSION]</span>
+                </button>
                 <button class="sci-fi-btn" onclick="location.href='polaris.html'">
                     <span class="btn-idx">DEST. 01</span>
                     나만의 북극성 만들기
