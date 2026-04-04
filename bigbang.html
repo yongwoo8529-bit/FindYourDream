@@ -119,7 +119,7 @@
             { prob: 80, label: "🔵 파란색: 전자 | ⚪ 하얀색: 쿼크 (천천히 유영 중)" },
             { prob: 60, label: "🔴 빨간색: 양성자 | ⚪ 하얀색: 중성자 (입자들이 생성됨)" },
             { prob: 20, label: "🌊 수소 원자핵(P+N) & 헬륨 원자핵(2P+2N) 형성 중" },
-            { prob: 0, label: "✨ 우주의 탄생: 수소 원자가 완성되었습니다!" }
+            { prob: 0, label: "축하드립니다! 빅뱅 강화에 성공하셧습니다<br>빅뱅 공부는 잘 되셧나요??<br>빅뱅 우주론 에 대해 공부 하기 힘들때 마다 들어와서 공부하세요!" }
         ];
 
         // Three.js Setup
@@ -150,9 +150,19 @@
             currentState = level;
             
             const config = stageConfig[level];
-            document.getElementById('prob-display').innerText = level < 4 ? `성공 확률: ${config.prob}%` : "최종 진화 완료";
-            
+            const probDisplay = document.getElementById('prob-display');
+            const enhanceBtn = document.getElementById('enhance-btn');
             const infoEl = document.getElementById('info-display');
+
+            if (level === 4) {
+                probDisplay.style.display = 'none';
+                enhanceBtn.style.display = 'none';
+            } else {
+                probDisplay.innerText = `성공 확률: ${config.prob}%`;
+                probDisplay.style.display = 'block';
+                enhanceBtn.style.display = 'block';
+            }
+            
             if (config.label) {
                 infoEl.innerHTML = config.label;
                 infoEl.classList.add('visible');
