@@ -178,10 +178,27 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
         }
+        
         .app-loaded {
             filter: blur(0);
             opacity: 1;
+        }
+        
+        @media (max-width: 600px) {
+            .sci-fi-btn {
+                padding: 16px 12px !important;
+                font-size: 0.85rem !important;
+            }
+            h1 {
+                font-size: 2.2rem !important;
+            }
+            .menu-btn-container {
+                gap: 1rem !important;
+            }
         }
     </style>
 </head>
@@ -220,6 +237,11 @@
                     <span class="btn-idx">DEST. 02</span>
                     빅뱅 강화하기
                     <span class="btn-deco">[BIG BANG ENHANCE]</span>
+                </button>
+                <button class="sci-fi-btn" onclick="location.href='board.html'">
+                    <span class="btn-idx">DEST. 03</span>
+                    당신과 같은 꿈을 가진 사람들의 이야기
+                    <span class="btn-deco">[GALAXY SIGNALS]</span>
                 </button>
 
             </div>

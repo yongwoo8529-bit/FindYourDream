@@ -286,6 +286,7 @@ h1, h2, h3 {
 
 #result-ui.visible {
     opacity: 1;
+    pointer-events: all;
 }
 
 .polaris-instruction {
@@ -320,10 +321,12 @@ h1, h2, h3 {
 }
 
 #result-title {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
     text-transform: uppercase;
     width: 90vw;
+    line-height: 1.2;
+    word-break: keep-all;
 }
 
 #result-desc {
@@ -443,8 +446,15 @@ h1, h2, h3 {
     .rating-btn { padding: 0.7rem 0.3rem; }
     .rating-btn span { font-size: 0.65rem; }
     
-    #result-title { font-size: 1.6rem; margin-bottom: 0.5rem; }
-    #result-desc { font-size: 0.85rem; line-height: 1.4; }
+    #result-title { font-size: 1.4rem; margin-bottom: 0.5rem; }
+    #result-desc { font-size: 0.8rem; line-height: 1.5; padding: 0 10px; }
+    #board-section { margin-top: 1rem !important; padding: 15px !important; }
+    #messages-list { max-height: 120px !important; font-size: 0.8rem !important; }
+    
+    .btn-start {
+        padding: 0.8rem 2rem;
+        font-size: 0.9rem;
+    }
     
     .polaris-instruction {
         font-size: 1rem;
