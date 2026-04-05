@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9406423137638957"
+     crossorigin="anonymous"></script>
+    <title>POLARIS - 메인 메뉴</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        .menu-btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            width: 100%;
+            max-width: 400px;
+            opacity: 0;
+            transition: opacity 1.5s ease-in;
+        }
+        .menu-btn-container.show {
+            opacity: 1;
+        }
+        
+        /* 사이버 우주 콘솔 버튼 스타일 */
+        .sci-fi-btn {
+            position: relative;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            padding: 24px;
+            font-size: 1.1rem;
+            font-family: 'Orbitron', 'Courier New', monospace;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .sci-fi-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #fff;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.4);
+            letter-spacing: 2px;
+        }
+        .sci-fi-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: skewX(-25deg);
+            transition: all 0.5s ease;
+        }
+        .sci-fi-btn:hover::before {
+            left: 150%;
+        }
+        .btn-idx {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.6);
+            position: absolute;
+            top: 5px; left: 10px;
+        }
+        .btn-deco {
+            font-size: 0.6rem;
+            color: rgba(255, 255, 255, 0.4);
+            position: absolute;
+            bottom: 5px; right: 10px;
+        }
+        
+        /* 컨셉충 우주선 탑승 로딩 화면 스타일 */
+        #loading-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #03080A;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+            transition: opacity 1s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        #terminal-content {
+            width: 100%;
+            max-width: 600px;
+            text-align: left;
+            padding: 20px;
+            box-sizing: border-box;
+            font-size: 0.95rem;
+        }
+        .term-line {
+            margin: 6px 0;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            opacity: 0;
+        }
+        .visible { opacity: 1; }
+        .blink-cursor::after {
+            content: '_';
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+        
+        #progress-container {
+            width: 90%;
+            max-width: 560px;
+            height: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+            position: relative;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            display: none;
+        }
+        #progress-bar {
+            width: 0%;
+            height: 100%;
+            background: #fff;
+            box-shadow: 0 0 15px #fff;
+            transition: width 0.05s linear;
+        }
+        #progress-text {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-shadow: 0 0 3px #000;
+        }
+        .glitch-effect {
+            animation: textGlitch 0.15s linear infinite;
+            color: red !important;
+            text-shadow: 2px 0 blue, -2px 0 red !important;
+        }
+        @keyframes textGlitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+        .warp-effect {
+            pointer-events: none;
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 0; height: 0;
+            background: #fff;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10000;
+            opacity: 0;
+        }
+        .warp-active {
+            animation: warpAnim 0.7s ease-in forwards;
+        }
+        @keyframes warpAnim {
+            0% { width: 0; height: 0; opacity: 1; box-shadow: 0 0 50px 20px #fff; }
+            70% { width: 250vw; height: 250vw; opacity: 1; }
+            100% { width: 250vw; height: 250vw; opacity: 0; }
+        }
+
+        /* 본문 흐림 효과 */
+        .app-container {
+            filter: blur(20px);
+            opacity: 0;
+            transition: filter 1.5s ease, opacity 1.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        
+        .app-loaded {
+            filter: blur(0);
+            opacity: 1;
+        }
+        
+        @media (max-width: 600px) {
+            .sci-fi-btn {
+                padding: 16px 12px !important;
+                font-size: 0.85rem !important;
+            }
+            h1 {
+                font-size: 2.2rem !important;
+            }
+            .menu-btn-container {
+                gap: 1rem !important;
+            }
+        }
+    </style>
+  <link rel="stylesheet" crossorigin href="/FindYourDream/assets/style-C1T-thXW.css">
+</head>
+<body>
+    <!-- 컨셉충 우주선 탑승 로딩 오버레이 -->
+    <div id="loading-overlay">
+        <div id="terminal-content"></div>
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+            <div id="progress-text">SYS.BOOT: 0%</div>
+        </div>
+        <div class="warp-effect" id="warp-flash"></div>
+    </div>
+
+    <canvas id="stars-bg"></canvas>
+    <div class="app-container" id="main-content">
+        <header class="nav">
+        </header>
+
+        <section class="section active" style="align-items: center; justify-content: center; height: 80vh;">
+            <h1>POLARIS</h1>
+            <p style="text-align: center; color: rgba(255, 255, 255, 0.8);">어느 여정으로 떠나시겠습니까?</p>
+            
+            <div class="menu-btn-container">
+                <button class="sci-fi-btn about-btn" onclick="location.href='about.html'" style="margin-bottom: 0.5rem; border-color: rgba(255, 255, 255, 0.3);">
+                    <span class="btn-idx">DEST. 00</span>
+                    북극성이란?
+                    <span class="btn-deco">[PROJECT MISSION]</span>
+                </button>
+                <button class="sci-fi-btn" onclick="location.href='polaris.html'">
+                    <span class="btn-idx">DEST. 01</span>
+                    나만의 북극성 만들기
+                    <span class="btn-deco">[POLARIS MATRIX]</span>
+                </button>
+                <button class="sci-fi-btn" onclick="location.href='bigbang.html'">
+                    <span class="btn-idx">DEST. 02</span>
+                    빅뱅 강화하기
+                    <span class="btn-deco">[BIG BANG ENHANCE]</span>
+                </button>
+                <button class="sci-fi-btn" onclick="location.href='board.html'">
+                    <span class="btn-idx">DEST. 03</span>
+                    당신과 같은 꿈을 가진 사람들의 이야기
+                    <span class="btn-deco">[GALAXY SIGNALS]</span>
+                </button>
+
+            </div>
+        </section>
+    </div>
+    
+    <script>
+        // 컨셉충 로딩 시퀀스 스크립트
+        const terminalContent = document.getElementById('terminal-content');
+        const progressContainer = document.getElementById('progress-container');
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+        const overlay = document.getElementById('loading-overlay');
+        const mainContent = document.getElementById('main-content');
+        const warpFlash = document.getElementById('warp-flash');
+
+        const logs = [
+            "[SYSTEM] POLARIS STARSHIP 접속 관리자 가동 중...",
+            "[INFO] 메인 추진체 예열 시작 (Temp: 4500K)",
+            "[PROCESS] 생명 유지 장치 및 인터페이스 동기화 중...",
+            "[WARNING] 성간 공허(Void) 진입 경고. 차단막 활성화...",
+            "[PROCESS] 양자 워프 엔진 점화 준비 (100% 동력 할당)",
+            "[SUCCESS] 우주선 탑승을 환영합니다. 목적지를 선택해주세요."
+        ];
+
+        let lineIdx = 0;
+        
+        function appendLog(text, index, isGlitch = false) {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    const line = document.createElement('div');
+                    line.className = 'term-line visible';
+                    if(isGlitch) line.classList.add('glitch-effect');
+                    
+                    if(index === logs.length - 1) {
+                        line.classList.add('blink-cursor');
+                    }
+                    line.textContent = text;
+                    terminalContent.appendChild(line);
+                    resolve();
+                }, Math.random() * 600 + 600); // 0.6s ~ 1.2s 간격으로 지연 (이전 0.3~0.7s)
+            });
+        }
+
+        async function runSequence() {
+            // 터미널 로그 출력
+            for (let i = 0; i < logs.length; i++) {
+                const isWarning = logs[i].startsWith("[WARNING]");
+                await appendLog(logs[i], i, isWarning);
+            }
+
+            // 로그 끝난 후 프로그레스 바 등장
+            setTimeout(() => {
+                const cursors = document.querySelectorAll('.blink-cursor');
+                cursors.forEach(c => c.classList.remove('blink-cursor'));
+
+                progressContainer.style.display = 'block';
+                let progress = 0;
+                
+                // 가짜 로딩 (속도 늦춤)
+                const interval = setInterval(() => {
+                    progress += Math.floor(Math.random() * 5) + 1; // 1~5% 씩 증가
+                    if (progress > 100) progress = 100;
+                    
+                    progressBar.style.width = progress + '%';
+                    progressText.textContent = `SYSTEM BOOT: ${progress}%`;
+                    
+                    if (progress >= 100) {
+                        clearInterval(interval);
+                        setTimeout(triggerWarp, 600); // 워프 전 조금 더 대기
+                    }
+                }, 150); // 150ms 간격으로 업데이트 (이전 80ms)
+            }, 500);
+        }
+
+        function triggerWarp() {
+            warpFlash.classList.add('warp-active');
+            setTimeout(() => {
+                overlay.style.opacity = '0';
+                mainContent.classList.add('app-loaded');
+                
+                // POLARIS 텍스트 2초 단독 노출 후 메뉴 버튼 페이드 인
+                setTimeout(() => {
+                    const btnContainer = document.querySelector('.menu-btn-container');
+                    if(btnContainer) btnContainer.classList.add('show');
+                }, 2000);
+
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                }, 1000);
+            }, 300); // 번쩍! 할때 검은화면 가림
+        }
+
+        const canvas = document.getElementById('stars-bg');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            const resizeCanvas = () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            };
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            const drawStars = () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < 200; i++) {
+                    ctx.fillStyle = `rgba(255, 255, 255, ${Math.random()})`;
+                    ctx.beginPath();
+                    ctx.arc(Math.random() * canvas.width, Math.random() * canvas.height, Math.random() * 1.5, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            };
+            drawStars();
+        }
+
+        // 페이지 로드시 시퀀스 시작
+        window.onload = () => {
+            runSequence();
+        };
+    </script>
+</body>
+</html>

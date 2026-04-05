@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9406423137638957"
+     crossorigin="anonymous"></script>
+    <title>POLARIS - 당신의 내면의 길을 찾아서</title>
+    <meta name="description" content="청소년들의 진짜 꿈과 가치를 찾기 위한 탐험, 북극성(Polaris) 프로젝트">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DDVCLM11CG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-DDVCLM11CG');
+    </script>
+  <script type="module" crossorigin src="/FindYourDream/assets/polaris-DLtCC1RZ.js"></script>
+  <link rel="stylesheet" crossorigin href="/FindYourDream/assets/style-C1T-thXW.css">
+</head>
+<body>
+    <!-- Background Space (Subtle Stars) -->
+    <canvas id="stars-bg"></canvas>
+
+    <div class="app-container">
+        <header class="nav">
+            <div class="logo" onclick="location.href='index.html'" style="cursor: pointer;">POLARIS</div>
+        </header>
+
+        <!-- Section 1: Landing -->
+        <section id="landing" class="section active">
+            <h1>당신만의 북극성을 찾으세요</h1>
+            <p>
+                공부라는 정해진 틀에서 벗어나, <br>
+                당신이 진정으로 무엇을 원하고 잘하는지 <br>
+                은하계의 별들을 통해 발견해 보세요.
+            </p>
+            <button class="btn-start" onclick="startSurvey()">탐험 시작하기</button>
+        </section>
+
+        <!-- Section 2: Survey -->
+        <section id="survey" class="section">
+            <div class="survey-card">
+                <div class="survey-header">
+                    <span id="part-label" class="question-part-label">PART 1: 호기심과 정보</span>
+                    <div class="survey-progress">
+                        <div id="progress-bar" class="progress-bar"></div>
+                    </div>
+                </div>
+                <div id="question-container">
+                    <h2 id="question-text">질문을 불러오는 중...</h2>
+                    <div class="rating-options">
+                        <button class="rating-btn" data-value="1">
+                            <strong>1</strong>
+                            <span>전혀 아니다</span>
+                        </button>
+                        <button class="rating-btn" data-value="2">
+                            <strong>2</strong>
+                            <span>아니다</span>
+                        </button>
+                        <button class="rating-btn" data-value="3">
+                            <strong>3</strong>
+                            <span>보통이다</span>
+                        </button>
+                        <button class="rating-btn" data-value="4">
+                            <strong>4</strong>
+                            <span>그렇다</span>
+                        </button>
+                        <button class="rating-btn" data-value="5">
+                            <strong>5</strong>
+                            <span>매우 그렇다</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="survey-footer">
+                    <button id="prev-btn" class="btn-prev" onclick="prevQuestion()" style="visibility: hidden;">이전으로</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Result (Canvas) -->
+        <section id="result" class="section">
+            <div id="canvas-container"></div>
+            <div id="result-ui">
+                <h1 id="result-title"></h1>
+                <p id="result-desc"></p>
+                
+                <div id="board-section" style="margin-top: 2rem; width: 100%; max-width: 600px; display: none; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
+                    <h3 style="color: #fff; margin-bottom: 1rem; font-size: 1.1rem; text-align: left;">🛰️ 이 유형의 친구들이 남긴 한마디</h3>
+                    <div id="messages-list" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 10px; max-height: 150px; overflow-y: auto; text-align: left; margin-bottom: 1rem; font-size: 0.85rem; line-height: 1.6;">
+                        <div style="opacity: 0.5;">통신 수신 중...</div>
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <input type="text" id="message-input" placeholder="예: 본인의 별명이나 닉네임으로 본인을 자유롭게 소개하고 본인의 이야기를 적어주세요!" style="flex: 1; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 8px 12px; border-radius: 6px; outline: none; font-size: 0.9rem;">
+                        <button onclick="sendMessage()" style="background: #fff; color: #000; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.9rem;">발송</button>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <button id="restart-btn" class="btn-start" style="margin-top: 1.5rem; pointer-events: all; display: none;" onclick="location.reload()">다시 하기</button>
+                    <button id="go-board-btn" class="btn-start" style="margin-top: 1.5rem; pointer-events: all; display: none; background: transparent; border: 1px solid rgba(255,255,255,0.5);" onclick="location.href='board.html'">전체 이야기 보기</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galaxy Detail Modal -->
+        <div id="galaxy-modal" class="modal-overlay">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal()">×</button>
+                <div class="modal-body">
+                    <h2 id="modal-galaxy-name">은하 이름</h2>
+                    <p id="modal-tagline" style="font-style: italic; opacity: 0.8; margin-top: -1.5rem; margin-bottom: 2rem; font-size: 0.9rem; color: var(--accent-blue);">"태그라인"</p>
+                    
+                    <div class="modal-info-section">
+                        <h3>✨ 당신의 핵심 재능</h3>
+                        <p id="modal-core">핵심 설명...</p>
+                    </div>
+                    
+                    <div class="modal-info-section">
+                        <h3>🌟 당신이 빛나는 순간</h3>
+                        <p id="modal-moment">순간 설명...</p>
+                    </div>
+
+                    <div class="modal-info-section">
+                        <h3>🚀 추천 직업 (20개)</h3>
+                        <p id="modal-jobs" style="line-height: 1.8; word-break: keep-all; color: #fff;"></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <p id="modal-disclaimer" style="font-size: 0.8rem; opacity: 0.6; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Creation Overlay -->
+        <div id="creation-overlay">
+            <h2 id="creation-text">당신의 내면의 북극성이 만들어집니다...</h2>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+</body>
+</html>
