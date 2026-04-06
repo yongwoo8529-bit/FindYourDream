@@ -19,11 +19,57 @@
 }
 
 body {
-    background: radial-gradient(circle at center, #1a1a2e 0%, #050505 100%);
+    background: #050505;
     color: var(--text-color);
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     min-height: 100vh;
+    position: relative;
+}
+
+/* Gemini-style Mesh Gradient Background */
+.aurora-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* 별보다 앞으로 배치 */
+    overflow: hidden;
+    pointer-events: none;
+    background: radial-gradient(circle at 50% 50%, #0d0d1a 0%, #050505 100%);
+}
+
+.nebula-point {
+    position: absolute;
+    width: 120vmax;
+    height: 120vmax;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.35; /* 불투명도 대폭 상향 */
+    mix-blend-mode: screen;
+    transition: transform 0.2s ease-out;
+    will-change: transform;
+    animation: drift 60s infinite linear alternate;
+}
+
+@keyframes drift {
+    0% { transform: scale(1) translate(0, 0); }
+    50% { transform: scale(1.1) translate(50px, -30px); }
+    100% { transform: scale(1) translate(-20px, 40px); }
+}
+
+.nebula-1 { background: radial-gradient(circle, #6c4ab6 0%, transparent 70%); top: -40%; left: -40%; animation-duration: 80s; }
+.nebula-2 { background: radial-gradient(circle, #3498db 0%, transparent 70%); bottom: -40%; right: -40%; animation-duration: 100s; }
+.nebula-3 { background: radial-gradient(circle, #ff00ff11 0%, transparent 60%); top: 10%; right: -10%; animation-duration: 70s; }
+
+#stars-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* 가장 뒤로 배치 */
 }
 
 h1, h2, h3 {

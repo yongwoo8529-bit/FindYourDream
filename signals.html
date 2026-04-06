@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>보드: 당신의 이야기 - POLARIS</title>
+    <style>
+        :root {
+            --bg-color: #001a18;
+            --accent-teal: #20c8a0;
+            --text-white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            font-family: system-ui, -apple-system, sans-serif;
+            width: 100vw;
+            min-height: 100vh;
+            overflow-x: hidden;
+            overscroll-behavior: none;
+        }
+
+        .hero-section {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            background: url('bg-signals.png') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0 20px 60px;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 40%, rgba(0, 26, 24, 0.9) 100%);
+            z-index: 1;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: env(safe-area-inset-top, 40px);
+            left: 20px;
+            z-index: 10;
+            padding: 10px 16px;
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 30px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .content-area {
+            background-color: var(--bg-color);
+            padding: 40px 20px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .glass-card {
+            width: 100%;
+            padding: 24px;
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(32, 200, 160, 0.15);
+            border-radius: 20px;
+        }
+
+        .card-label {
+            font-size: 11px;
+            color: var(--accent-teal);
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .card-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.85);
+        }
+    </style>
+</head>
+<body>
+    <header class="hero-section">
+        <a href="index.html" class="back-btn">← POLARIS</a>
+        <div class="hero-content">
+            <h1 class="section-title">보드: 당신의 이야기</h1>
+        </div>
+    </header>
+
+    <main class="content-area">
+        <div class="glass-card">
+            <div class="card-label">Cosmic Signals</div>
+            <p class="card-text">
+                우주를 떠도는 무수히 많은 전파들처럼, 이곳에서는 당신과 같은 꿈을 가진 사람들의 진솔한 이야기를 나눕니다.
+            </p>
+        </div>
+        <div class="glass-card">
+            <div class="card-label">Aurora Reflection</div>
+            <p class="card-text">
+                에메랄드빛 오로라가 하늘을 수놓듯, 당신의 꿈도 이 게시판에서 영롱하게 빛나갈 것입니다. 
+            </p>
+        </div>
+    </main>
+</body>
+</html>
