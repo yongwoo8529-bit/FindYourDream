@@ -124,6 +124,7 @@ h1, h2, h3 {
     top: 0;
     left: 0;
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    padding-top: 80px; /* 네비게이션 공간 확보 */
 }
 
 .section.active {
@@ -484,10 +485,14 @@ h1, h2, h3 {
 }
 
 @media (max-width: 600px) {
-    #landing h1 { font-size: 2rem; }
-    #landing p { font-size: 0.9rem; }
-    .survey-card { padding: 1.5rem; }
-    #question-text { font-size: 1.1rem; min-height: 3rem; }
+    .section {
+        justify-content: flex-start; /* 모바일에서는 위쪽부터 정렬하되 여백으로 조절 */
+        padding-top: 120px; /* 상단에서 더 멀어지게 하여 '땡겨진' 느낌 제거 */
+    }
+    #landing h1 { font-size: 2.2rem; margin-top: 20px; }
+    #landing p { font-size: 1rem; margin-bottom: 2rem; }
+    .survey-card { padding: 1.5rem; margin-top: 10px; }
+    #question-text { font-size: 1.1rem; min-height: 3.5rem; margin-bottom: 1.5rem; }
     .rating-options { gap: 6px; }
     .rating-btn { padding: 0.7rem 0.3rem; }
     .rating-btn span { font-size: 0.65rem; }
