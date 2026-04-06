@@ -365,7 +365,6 @@ function explodeToGalaxies(specialType) {
         
         document.getElementById("result-desc").innerHTML = descHtml;
         document.getElementById("restart-btn").style.display = "inline-block";
-        document.getElementById("go-board-btn").style.display = "inline-block";
         
         gsap.to(document.getElementById("result-ui"), { opacity: 1, duration: 1, delay: 1 });
     }, 2800);
