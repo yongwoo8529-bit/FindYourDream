@@ -18,18 +18,29 @@
     </script>
     <style>
         body {
-            background-color: #050505;
+            background: radial-gradient(circle at center, #1a1a2e 0%, #050505 100%);
             color: #ffffff;
             margin: 0;
             padding: 0;
             font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+        }
+        #stars-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
         }
     </style>
-  <script type="module" crossorigin src="./assets/polaris-DLtCC1RZ.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/style-C1T-thXW.css">
+  <script type="module" crossorigin src="./assets/polaris-DCynPZ3E.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/style-2c69d0Vr.css">
 </head>
 <body>
     <!-- Background Space (Subtle Stars) -->
+    <div class="aurora-bg">
+        <div class="nebula-point nebula-1" id="nebula-1"></div>
+        <div class="nebula-point nebula-2" id="nebula-2"></div>
+        <div class="nebula-point nebula-3" id="nebula-3"></div>
+    </div>
     <canvas id="stars-bg"></canvas>
 
     <div class="app-container">
@@ -95,17 +106,6 @@
                 <h1 id="result-title"></h1>
                 <p id="result-desc"></p>
                 
-                <div id="board-section" style="margin-top: 2rem; width: 100%; max-width: 600px; display: none; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
-                    <h3 style="color: #fff; margin-bottom: 1rem; font-size: 1.1rem; text-align: left;">🛰️ 이 유형의 친구들이 남긴 한마디</h3>
-                    <div id="messages-list" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 10px; max-height: 150px; overflow-y: auto; text-align: left; margin-bottom: 1rem; font-size: 0.85rem; line-height: 1.6;">
-                        <div style="opacity: 0.5;">통신 수신 중...</div>
-                    </div>
-                    <div style="display: flex; gap: 8px;">
-                        <input type="text" id="message-input" placeholder="예: 본인의 별명이나 닉네임으로 본인을 자유롭게 소개하고 본인의 이야기를 적어주세요!" style="flex: 1; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 8px 12px; border-radius: 6px; outline: none; font-size: 0.9rem;">
-                        <button onclick="sendMessage()" style="background: #fff; color: #000; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.9rem;">발송</button>
-                    </div>
-                </div>
-
                 <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
                     <button id="restart-btn" class="btn-start" style="margin-top: 1.5rem; pointer-events: all; display: none;" onclick="location.reload()">다시 하기</button>
                     <button id="go-board-btn" class="btn-start" style="margin-top: 1.5rem; pointer-events: all; display: none; background: transparent; border: 1px solid rgba(255,255,255,0.5);" onclick="location.href='board.html'">전체 이야기 보기</button>
@@ -152,5 +152,33 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script>
+        // 자이로스코프 모바일 효과
+        function initTiltEffect() {
+            window.addEventListener('deviceorientation', (event) => {
+                const beta = event.beta;
+                const gamma = event.gamma;
+                const x = (gamma / 20) * 10;
+                const y = (beta / 20) * 10;
+                
+                gsap.to('#nebula-1', { x: x * 2, y: y * 2, duration: 2, ease: "power2.out" });
+                gsap.to('#nebula-2', { x: -x * 1.5, y: -y * 1.5, duration: 2, ease: "power2.out" });
+                gsap.to('#nebula-3', { x: x * 0.8, y: -y * 0.8, duration: 2, ease: "power2.out" });
+                gsap.to('#stars-bg', { x: x * 0.5, y: y * 0.5, duration: 1, ease: "power2.out" });
+            });
+        }
+        
+        // PC 테스트를 위한 마우스 백업
+        window.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 30;
+            const y = (e.clientY / window.innerHeight - 0.5) * 30;
+            gsap.to('#nebula-1', { x: x * 2, y: y * 2, duration: 4, ease: "slow(0.7,0.7,false)" });
+            gsap.to('#nebula-2', { x: -x * 1.5, y: -y * 1.5, duration: 4, ease: "slow(0.7,0.7,false)" });
+            gsap.to('#nebula-3', { x: x, y: -y, duration: 4, ease: "slow(0.7,0.7,false)" });
+            gsap.to('#stars-bg', { x: x * 0.3, y: y * 0.3, duration: 2 });
+        });
+        
+        window.addEventListener('load', initTiltEffect);
+    </script>
 </body>
 </html>
