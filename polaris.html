@@ -105,17 +105,6 @@
                 <h1 id="result-title"></h1>
                 <p id="result-desc"></p>
                 
-                <div id="board-section" style="margin-top: 2rem; width: 100%; max-width: 600px; display: none; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
-                    <h3 style="color: #fff; margin-bottom: 1rem; font-size: 1.1rem; text-align: left;">🛰️ 이 유형의 친구들이 남긴 한마디</h3>
-                    <div id="messages-list" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 10px; max-height: 150px; overflow-y: auto; text-align: left; margin-bottom: 1rem; font-size: 0.85rem; line-height: 1.6;">
-                        <div style="opacity: 0.5;">통신 수신 중...</div>
-                    </div>
-                    <div style="display: flex; gap: 8px;">
-                        <input type="text" id="message-input" placeholder="예: 본인의 별명이나 닉네임으로 본인을 자유롭게 소개하고 본인의 이야기를 적어주세요!" style="flex: 1; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 8px 12px; border-radius: 6px; outline: none; font-size: 0.9rem;">
-                        <button onclick="sendMessage()" style="background: #fff; color: #000; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.9rem;">발송</button>
-                    </div>
-                </div>
-
                 <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
                     <button id="restart-btn" class="btn-start" style="margin-top: 1.5rem; pointer-events: all; display: none;" onclick="location.reload()">다시 하기</button>
                     <button id="go-board-btn" class="btn-start" style="margin-top: 1.5rem; pointer-events: all; display: none; background: transparent; border: 1px solid rgba(255,255,255,0.5);" onclick="location.href='board.html'">전체 이야기 보기</button>

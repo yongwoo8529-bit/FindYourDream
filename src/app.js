@@ -367,13 +367,6 @@ function explodeToGalaxies(specialType) {
         document.getElementById("restart-btn").style.display = "inline-block";
         document.getElementById("go-board-btn").style.display = "inline-block";
         
-        // Show board section and load messages
-        const boardSection = document.getElementById("board-section");
-        if(boardSection) {
-            boardSection.style.display = "block";
-            loadMessages(maxPart);
-        }
-
         gsap.to(document.getElementById("result-ui"), { opacity: 1, duration: 1, delay: 1 });
     }, 2800);
 }
