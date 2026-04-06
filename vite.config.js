@@ -12,7 +12,10 @@ export default defineConfig({
         about: resolve(__dirname, 'about.html'),
         board: resolve(__dirname, 'board.html'),
         photo_editor: resolve(__dirname, 'photo-editor.html'),
-        horoscope: resolve(__dirname, 'horoscope.html')
+        horoscope: resolve(__dirname, 'horoscope.html'),
+        matrix: resolve(__dirname, 'matrix.html'),
+        mission: resolve(__dirname, 'mission.html'),
+        signals: resolve(__dirname, 'signals.html')
       }
     }
   }
