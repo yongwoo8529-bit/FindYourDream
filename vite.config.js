@@ -10,12 +10,13 @@ export default defineConfig({
         polaris: resolve(__dirname, 'polaris.html'),
         bigbang: resolve(__dirname, 'bigbang.html'),
         about: resolve(__dirname, 'about.html'),
-        board: resolve(__dirname, 'board.html'),
         photo_editor: resolve(__dirname, 'photo-editor.html'),
         horoscope: resolve(__dirname, 'horoscope.html'),
         matrix: resolve(__dirname, 'matrix.html'),
         mission: resolve(__dirname, 'mission.html'),
-        signals: resolve(__dirname, 'signals.html')
+        privacy: resolve(__dirname, 'privacy.html'),
+        signals: resolve(__dirname, 'signals.html'),
+        board: resolve(__dirname, 'board.html')
       }
     }
   }

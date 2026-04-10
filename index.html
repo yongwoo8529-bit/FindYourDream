@@ -29,21 +29,26 @@
             color: var(--text-white);
             font-family: system-ui, -apple-system, sans-serif;
             width: 100vw;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto; /* Enable scroll for content */
             overscroll-behavior: none;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
         }
 
         /* [배경 시스템] */
         .page-wrapper {
             width: 100%;
-            max-width: 390px;
-            height: 100%;
+            max-width: 800px; /* Increased for desktop/text visibility */
+            min-height: 100vh;
             position: relative;
             background: url('bg-main.png') no-repeat center center;
             background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
         }
 
         .overlay {
@@ -64,11 +69,54 @@
         .content-layer {
             position: relative;
             z-index: 10;
-            height: 100%;
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: env(safe-area-inset-top, 40px) 20px 40px;
+            padding: 100px 20px 40px;
+        }
+
+        /* [Navigation] */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            max-width: 800px;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 100;
+            background: rgba(4, 10, 24, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-logo {
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 900;
+            font-size: 20px;
+            letter-spacing: 2px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
         }
 
         /* 행성 오브젝트 섹션 */
@@ -256,21 +304,100 @@
         .dot:nth-child(2) { animation: blink 1.5s infinite 0.2s; }
         .dot:nth-child(3) { animation: blink 1.5s infinite 0.4s; }
 
+        /* [Footer] */
+        .main-footer {
+            width: 100%;
+            padding: 60px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 10;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* 텍스트 콘텐츠 보강 */
+        .intro-text-block {
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: left;
+        }
+
+        .intro-text-block p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 15px;
+        }
+
         #particle-overlay {
-            position: absolute;
+            position: fixed;
             inset: 0;
             z-index: 20;
             pointer-events: none;
         }
+
     </style>
 </head>
 <body>
     <div class="page-wrapper">
+        <nav class="top-nav">
+            <a href="index.html" class="nav-logo">POLARIS</a>
+            <div class="nav-links">
+                <a href="about.html">About</a>
+                <a href="polaris.html">Matrix</a>
+                <a href="privacy.html">Privacy</a>
+            </div>
+        </nav>
+
         <div class="overlay"></div>
         <canvas id="background-canvas"></canvas>
         <canvas id="particle-overlay"></canvas>
 
         <main class="content-layer">
+
             <!-- 행성 오브젝트 -->
             <div class="planet-section" onclick="burstPlanet(event)">
                 <div class="satellite-orbit">
@@ -286,37 +413,68 @@
                 <p class="sub-title">어느 여정으로 떠나시겠습니까?</p>
             </div>
 
-            <!-- 메뉴 카드 -->
+            <div class="intro-text-block">
+                <p>
+                    <strong>POLARIS 프로젝트</strong>는 급변하는 현대 사회 속에서 청소년들이 자신의 진정한 가치를 발견하고, 남들의 시선이 아닌 자신만의 내면의 목소리에 귀를 기울일 수 있도록 돕기 위해 시작되었습니다.
+                </p>
+                <p>
+                    우리는 각자가 하나의 고유한 은하계와 같다고 믿습니다. 어떤 이는 탐구의 빛이 강하고, 어떤 이는 공감과 온기의 에너지가 넘칩니다. POLARIS는 여러분의 이러한 고유한 성향을 '우주적 관점'에서 분석하고 시각화하여, 스스로가 얼마나 눈부신 존재인지 깨닫게 해줍니다.
+                </p>
+                <p>
+                    단순한 심리 테스트를 넘어, Three.js 기반의 환상적인 3D 인터랙션을 통해 여러분의 내면 세계를 체험해 보세요. 북극성이 길을 잃은 여행자들의 지표가 되듯, POLARIS가 여러분의 꿈을 향한 여정의 이정표가 되어드릴 것입니다.
+                </p>
+            </div>
+
             <div class="menu-container">
                 <a href="about.html" class="menu-card" style="--theme-color: #4080ff; --theme-color-glow: rgba(64, 128, 255, 0.4);">
                     <span class="dest-label">DEST.00</span>
-                    <span class="menu-name">북극성이란?</span>
+                    <span class="menu-name">프로젝트 스토리</span>
                     <span class="tag-label">[PROJECT MISSION]</span>
                     <div class="glow-circle"></div>
                 </a>
 
                 <a href="polaris.html" class="menu-card" style="--theme-color: #9060ff; --theme-color-glow: rgba(144, 96, 255, 0.4);">
                     <span class="dest-label">DEST.01</span>
-                    <span class="menu-name">나만의 북극성 만들기</span>
+                    <span class="menu-name">나만의 북극성 찾기</span>
                     <span class="tag-label">[POLARIS MATRIX]</span>
                     <div class="glow-circle"></div>
                 </a>
-
-                <a href="board.html" class="menu-card" style="--theme-color: #20c8a0; --theme-color-glow: rgba(32, 200, 160, 0.4);">
-                    <span class="dest-label">DEST.02</span>
-                    <span class="menu-name">보드: 당신의 이야기</span>
-                    <span class="tag-label">[GALAXY SIGNALS]</span>
-                    <div class="glow-circle"></div>
-                </a>
-            </div>
-
-            <!-- 스크롤 힌트 -->
-            <div class="scroll-hint">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
             </div>
         </main>
+
+        <footer class="main-footer">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="index.html">홈으로</a></li>
+                        <li><a href="about.html">브랜드 스토리</a></li>
+                        <li><a href="polaris.html">성향 분석</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="index.html">홈으로</a></li>
+                        <li><a href="about.html">브랜드 스토리</a></li>
+                        <li><a href="polaris.html">성향 분석</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col" style="opacity: 0; pointer-events: none;">
+                    <!-- Spacer -->
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">개인정보 처리방침</a></li>
+                        <li><a href="about.html">이용약관</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 POLARIS PROJECT. All Rights Reserved.
+            </div>
+        </footer>
     </div>
 
     <script>

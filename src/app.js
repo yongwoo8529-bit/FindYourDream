@@ -370,67 +370,7 @@ function explodeToGalaxies(specialType) {
     }, 2800);
 }
 
-function loadMessages(type) {
-    const list = document.getElementById("messages-list");
-    const allMessages = JSON.parse(localStorage.getItem('polaris_board_messages') || '[]');
-    const filtered = allMessages.filter(m => m.type == type).sort((a,b) => b.time - a.time);
-    
-    if (filtered.length === 0) {
-        list.innerHTML = '<div style="opacity: 0.5; text-align: center;">아직 도착한 신호가 없습니다. 첫 번째 신호를 보내보세요!</div>';
-        return;
-    }
 
-    list.innerHTML = filtered.map((m, idx) => {
-        const isLiked = (sessionStorage.getItem(`liked_${m.time}`) === 'true');
-        return `
-        <div style="border-bottom: 1px solid rgba(255,255,255,0.05); padding: 12px 0; margin-bottom: 8px; display: flex; flex-direction: column; gap: 8px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-                <div style="font-size: 0.75rem; opacity: 0.5;">발신 시간: ${new Date(m.time).toLocaleTimeString()}</div>
-                <button onclick="likeMessage(${m.time})" id="like-btn-${m.time}" style="background: none; border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; cursor: pointer; display: flex; align-items: center; gap: 4px; ${isLiked ? 'opacity: 0.4; pointer-events: none;' : ''}">
-                    ❤️ <span>${m.likes || 0}</span>
-                </button>
-            </div>
-            <div style="color: #fff; line-height: 1.5; font-size: 0.95rem; word-break: break-all;">${m.text}</div>
-        </div>
-        `;
-    }).join('');
-}
-
-function likeMessage(time) {
-    if (sessionStorage.getItem(`liked_${time}`) === 'true') return;
-
-    const allMessages = JSON.parse(localStorage.getItem('polaris_board_messages') || '[]');
-    const msg = allMessages.find(m => m.time === time);
-    if (msg) {
-        msg.likes = (msg.likes || 0) + 1;
-        localStorage.setItem('polaris_board_messages', JSON.stringify(allMessages));
-        sessionStorage.setItem(`liked_${time}`, 'true'); // Mark as liked in current session
-        loadMessages(currentUserType);
-    }
-}
-window.likeMessage = likeMessage;
-
-function sendMessage() {
-    const input = document.getElementById("message-input");
-    const text = input.value.trim();
-    if (!text || !currentUserType) return;
-
-    const allMessages = JSON.parse(localStorage.getItem('polaris_board_messages') || '[]');
-    allMessages.push({
-        type: currentUserType,
-        text: text,
-        time: Date.now(),
-        likes: 0
-    });
-    localStorage.setItem('polaris_board_messages', JSON.stringify(allMessages));
-    
-    input.value = '';
-    loadMessages(currentUserType);
-    
-    // Simple feedback
-    gsap.fromTo("#messages-list", { opacity: 0.5 }, { opacity: 1, duration: 0.5 });
-}
-window.sendMessage = sendMessage;
 
 function createShatteredImplosion(pos, color, specialType) {
     const group = new THREE.Group(); scene.add(group);
