@@ -24,8 +24,41 @@
             width: 100vw;
             min-height: 100vh;
             overflow-x: hidden;
-            overscroll-behavior: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+
+        /* [Navigation] */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            max-width: 800px;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 100;
+            background: rgba(4, 10, 24, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-logo { font-weight: 700; color: #fff; text-decoration: none; font-size: 20px; }
+        .nav-links { display: flex; gap: 15px; }
+        .nav-links a { color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 13px; }
+
+        .main-footer {
+            width: 100%;
+            max-width: 800px;
+            padding: 60px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 10;
+        }
+        .footer-bottom { text-align: center; font-size: 11px; color: rgba(255, 255, 255, 0.3); }
 
         .hero-section {
             width: 100%;
@@ -117,28 +150,54 @@
     </style>
 </head>
 <body>
+    <nav class="top-nav">
+        <a href="index.html" class="nav-logo">POLARIS</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">Story</a>
+            <a href="polaris.html">Analyze</a>
+            <a href="privacy.html">Privacy</a>
+        </div>
+    </nav>
+
     <!-- 히어로 섹션 -->
     <header class="hero-section">
-        <a href="index.html" class="back-btn">← POLARIS</a>
         <div class="hero-content">
             <h1 class="section-title">북극성이란?</h1>
         </div>
     </header>
 
     <!-- 콘텐츠 레이아웃 영역 -->
-    <main class="content-area">
+    <main class="content-area" style="max-width: 800px; width: 100%;">
         <div class="glass-card">
             <div class="card-label">The North Star</div>
             <p class="card-text">
-                북극성은 우리의 어두운 하늘에서 변하지 않는 나침반과 같습니다. 수많은 별들이 이동하는 밤에도, 북극성만은 그 자리를 지키며 여행자들에게 정북향을 알려줍니다.
+                북극성은 우리의 어두운 하늘에서 변하지 않는 나침반과 같습니다. 수많은 별들이 이동하는 밤에도, 북극성만은 그 자리를 지키며 여행자들에게 정북향을 알려줍니다. 
+                이처럼 POLARIS 프로젝트는 시시각각 변화하는 환경 속에서도 흔들리지 않는 개인의 중심 자아를 상징합니다.
             </p>
         </div>
         <div class="glass-card">
             <div class="card-label">Guidance of Dream</div>
             <p class="card-text">
-                POLARIS 프로젝트는 당신의 인생에서 길을 잃지 않게 도와주는 '꿈'이라는 북극성을 찾아가는 여정을 지원합니다. 
+                우리는 누구나 마음속에 자신만의 빛나는 별을 품고 있습니다. 하지만 사회의 요구와 타인의 기대에 부응하려다 보면, 그 별빛이 희미해질 때가 많습니다. 
+                POLARIS 프로젝트는 여러분의 인생에서 길을 잃지 않게 도와주는 '꿈'이라는 북극성을 찾아가는 여정을 지원합니다. 
+                단순히 잘하는 것을 찾는 것을 넘어, 무엇이 나를 가장 나답게 만드는지 탐구하는 과정입니다.
+            </p>
+        </div>
+        <div class="glass-card">
+            <div class="card-label">Visualizing Your Potential</div>
+            <p class="card-text">
+                우리는 설문 조사를 통해 얻은 데이터를 3D 파티클 기술로 동적 시각화합니다. 
+                여러분의 성향이 어떻게 거대한 은하를 형성하고 퍼져나가는지 확인하며, 여러분의 가능성이 얼마나 무궁무진한지 시각적으로 경험할 수 있습니다. 
+                이 모든 과정은 여러분이 자신감을 가지고 미래를 향해 나아갈 수 있도록 설계되었습니다.
             </p>
         </div>
     </main>
+
+    <footer class="main-footer">
+        <div class="footer-bottom">
+            &copy; 2024 POLARIS PROJECT. <a href="privacy.html" style="color: inherit;">개인정보 처리방침</a>
+        </div>
+    </footer>
 </body>
 </html>
