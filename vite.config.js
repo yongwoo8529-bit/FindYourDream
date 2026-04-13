@@ -18,7 +18,8 @@ export default defineConfig({
         signals: resolve(__dirname, 'signals.html'),
         board: resolve(__dirname, 'board.html'),
         blog: resolve(__dirname, 'blog.html'),
-        results_guide: resolve(__dirname, 'results-guide.html')
+        results_guide: resolve(__dirname, 'results-guide.html'),
+        post: resolve(__dirname, 'post.html')
       }
     }
   }
