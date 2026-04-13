@@ -100,4 +100,39 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              */const a
             <p>실패가 두렵다면, 먼저 '최악의 시나리오'를 구체적으로 생각해보세요. 막연히 두려운 것을 구체화하면 그것이 사실 그렇게 무서운 것이 아님을 깨닫게 됩니다. 또한 작은 도전부터 시작해서 성공 경험을 쌓아나가면 점차 더 큰 도전도 가능해집니다. 완벽한 준비가 된 뒤에 도전하겠다는 생각은 영원히 도전하지 않겠다는 말과 같습니다.</p>
 
             <p>실패는 끝이 아닙니다. 방향을 수정하라는 신호입니다.</p>
-        `},7:{title:"글 7",content:""},8:{title:"글 8",content:""},9:{title:"글 9",content:""},10:{title:"글 10",content:""}},c=new URLSearchParams(window.location.search),l=c.get("id")||1,n=a[l];n?(document.getElementById("post-title").innerText=n.title,document.getElementById("post-content").innerHTML=n.content,document.title=`POLARIS - ${n.title}`):document.getElementById("post-title").innerText="포스트를 찾을 수 없습니다.";const e=document.getElementById("stars-bg"),p=e.getContext("2d");let h=[];const o=()=>{e.width=window.innerWidth,e.height=window.innerHeight};window.addEventListener("resize",o);o();class r{constructor(){this.x=Math.random()*e.width,this.y=Math.random()*e.height,this.size=Math.random()*1.5,this.opacity=Math.random(),this.blink=.005+Math.random()*.01}draw(){this.opacity+=this.blink,(this.opacity>1||this.opacity<0)&&(this.blink*=-1),p.fillStyle=`rgba(255,255,255,${Math.max(0,this.opacity)})`,p.beginPath(),p.arc(this.x,this.y,this.size,0,Math.PI*2),p.fill()}}for(let t=0;t<200;t++)h.push(new r);function s(){p.clearRect(0,0,e.width,e.height),h.forEach(t=>t.draw()),requestAnimationFrame(s)}s();const d=document.getElementById("nav-toggle"),i=document.getElementById("nav-menu");d.addEventListener("click",t=>{t.stopPropagation(),i.classList.toggle("active")});document.addEventListener("click",t=>{i.contains(t.target)||i.classList.remove("active")});
+        `},7:{title:"글 7. 스마트폰 없이 나를 찾는 시간, 디지털 디톡스의 힘",content:`
+            <p>하루 평균 스마트폰 사용 시간이 얼마나 되는지 확인해본 적 있으신가요? 많은 청소년들이 하루 6~8시간, 심한 경우 10시간 이상 스마트폰을 사용한다는 통계가 있습니다. 잠자는 시간을 제외하면 깨어있는 시간의 절반 이상을 화면을 들여다보며 보내는 셈입니다.</p>
+
+            <h2>과도한 스마트폰 사용이 미치는 영향</h2>
+            <p>스마트폰의 짧고 빠른 콘텐츠들은 뇌의 도파민 시스템을 자극하도록 설계되어 있습니다. 숏폼 영상, 무한 스크롤, 알림 등이 끊임없이 우리의 주의를 끌어당깁니다. 그 결과 집중력이 떨어지고, 긴 글이나 복잡한 사고를 요하는 활동을 견디기 어려워집니다. 또한 SNS 속 타인의 삶과 비교하면서 자존감이 낮아지고, 수면의 질이 저하되는 부작용도 있습니다.</p>
+
+            <h2>디지털 디톡스란 무엇인가</h2>
+            <p>디지털 디톡스는 스마트폰, 소셜 미디어, 온라인 콘텐츠 등 디지털 기기 사용을 의도적으로 줄이거나 중단하는 활동입니다. 완전히 끊는 것이 아니라, 디지털 기기에 쏟던 시간과 에너지를 나 자신에게 돌리는 것이 목적입니다.</p>
+
+            <h2>디지털 디톡스를 시작하는 방법</h2>
+            <p>완전히 스마트폰을 끊을 필요는 없습니다. 하루 중 일부 시간만이라도 스마트폰을 내려놓는 것부터 시작해보세요.</p>
+            <p>잠자기 1시간 전에는 스마트폰을 침대 밖에 두기, 식사 시간 동안은 스마트폰을 뒤집어 놓기, 하루 중 30분은 스마트폰 없이 산책하기 등 작은 실천으로 시작할 수 있습니다. SNS 앱 사용 시간을 하루 30분으로 제한하는 설정을 활용하는 것도 효과적입니다.</p>
+
+            <h2>스마트폰을 내려놓으면 생기는 것들</h2>
+            <p>스마트폰을 내려놓으면 처음에는 무엇을 해야 할지 모르는 공허함이 생깁니다. 그 공허함을 피하지 말고 느껴보세요. 그 안에서 자신이 진짜로 하고 싶은 것, 생각하고 싶은 것들이 떠오르기 시작합니다. 스마트폰이 채워주던 빈자리에 나만의 생각과 감정이 들어오기 시작하는 것입니다.</p>
+
+            <p>나를 찾는 여정의 첫 걸음은 화면에서 눈을 떼는 것에서 시작될 수도 있습니다.</p>
+        `},8:{title:"글 8. 청소년이 알아야 할 자기결정이론: 내가 선택한 삶이 행복하다",content:`
+            <p>왜 어떤 일은 시키지 않아도 열심히 하게 되고, 어떤 일은 해야 한다는 걸 알면서도 하기 싫을까요? 이 질문에 답을 주는 심리학 이론이 있습니다. 바로 에드워드 데시와 리처드 라이언이 제안한 '자기결정이론(Self-Determination Theory)'입니다.</p>
+
+            <h2>자기결정이론의 핵심</h2>
+            <p>자기결정이론에 따르면 인간은 세 가지 기본 심리적 욕구를 가집니다.</p>
+            <p>첫째, 자율성(Autonomy): 자신의 행동을 스스로 선택하고 결정하고 싶은 욕구입니다.<br>
+            둘째, 유능감(Competence): 무언가를 잘 해내고 성장하고 싶은 욕구입니다.<br>
+            셋째, 관계성(Relatedness): 타인과 진정한 연결을 맺고 싶은 욕구입니다.</p>
+            <p>이 세 가지 욕구가 충족될 때 인간은 내재적 동기(스스로 하고 싶어서 하는 동기)가 강해지고, 삶의 만족도가 높아집니다.</p>
+
+            <h2>청소년의 삶에 적용하기</h2>
+            <p>많은 청소년들이 공부를 싫어하는 이유 중 하나는 자율성이 없기 때문입니다. 공부의 내용과 방법이 모두 외부에서 주어지고, 나는 그냥 따라가야 하는 상황에서 내재적 동기가 생길 수 없습니다. 반면, 스스로 선택해서 하는 취미나 관심사에는 누가 시키지 않아도 열중하게 됩니다.</p>
+
+            <h2>자기결정력을 높이는 방법</h2>
+            <p>작은 것부터 스스로 선택하는 연습이 필요합니다. 오늘 저녁 뭘 먹을지, 내일 공부 순서를 어떻게 할지, 이번 주말에 뭘 할지 등 사소한 결정도 스스로 내리는 연습이 자기결정력을 키웁니다.</p>
+            <p>또한 자신이 어떤 것에 가치를 두는지 명확히 아는 것이 중요합니다. 내가 왜 이 일을 하는지, 이것이 나에게 어떤 의미가 있는지를 이해할 때 외부 압박으로 하는 것보다 훨씬 더 강한 동기를 갖게 됩니다.</p>
+
+            <p>POLARIS 성향 테스트는 여러분이 어떤 가치와 욕구를 가진 사람인지 이해하는 데 도움을 줍니다. 내가 어떤 사람인지 알수록 더 나다운 선택을 할 수 있습니다.</p>
+        `},9:{title:"글 9",content:""},10:{title:"글 10",content:""}},c=new URLSearchParams(window.location.search),l=c.get("id")||1,n=a[l];n?(document.getElementById("post-title").innerText=n.title,document.getElementById("post-content").innerHTML=n.content,document.title=`POLARIS - ${n.title}`):document.getElementById("post-title").innerText="포스트를 찾을 수 없습니다.";const p=document.getElementById("stars-bg"),e=p.getContext("2d");let i=[];const o=()=>{p.width=window.innerWidth,p.height=window.innerHeight};window.addEventListener("resize",o);o();class r{constructor(){this.x=Math.random()*p.width,this.y=Math.random()*p.height,this.size=Math.random()*1.5,this.opacity=Math.random(),this.blink=.005+Math.random()*.01}draw(){this.opacity+=this.blink,(this.opacity>1||this.opacity<0)&&(this.blink*=-1),e.fillStyle=`rgba(255,255,255,${Math.max(0,this.opacity)})`,e.beginPath(),e.arc(this.x,this.y,this.size,0,Math.PI*2),e.fill()}}for(let t=0;t<200;t++)i.push(new r);function s(){e.clearRect(0,0,p.width,p.height),i.forEach(t=>t.draw()),requestAnimationFrame(s)}s();const d=document.getElementById("nav-toggle"),h=document.getElementById("nav-menu");d.addEventListener("click",t=>{t.stopPropagation(),h.classList.toggle("active")});document.addEventListener("click",t=>{h.contains(t.target)||h.classList.remove("active")});
