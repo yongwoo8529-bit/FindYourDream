@@ -16,7 +16,9 @@ export default defineConfig({
         mission: resolve(__dirname, 'mission.html'),
         privacy: resolve(__dirname, 'privacy.html'),
         signals: resolve(__dirname, 'signals.html'),
-        board: resolve(__dirname, 'board.html')
+        board: resolve(__dirname, 'board.html'),
+        blog: resolve(__dirname, 'blog.html'),
+        results_guide: resolve(__dirname, 'results-guide.html')
       }
     }
   }
