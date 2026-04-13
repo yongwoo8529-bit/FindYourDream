@@ -4,9 +4,9 @@
   "description": "Counseling app for finding inner potential through galaxies",
   "main": "index.html",
   "scripts": {
-    "dev": "vite",
+    "dev": "npx vite",
     "build": "npx vite build",
-    "preview": "vite preview",
+    "preview": "npx vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
