@@ -163,13 +163,14 @@
 <body>
     <nav class="top-nav">
         <a href="index.html" class="nav-logo">POLARIS</a>
-        <div class="nav-links">
-            <a href="index.html"></a>
-            <a href="about.html"></a>
-            <a href="results-guide.html"></a>
-            <a href="blog.html"></a>
-            <a href="polaris.html"></a>
-            <a href="privacy.html"></a>
+        <button id="nav-toggle" class="nav-btn">NAVIGATE</button>
+        <div id="nav-menu" class="nav-overlay">
+            <div class="nav-menu-content">
+                <a href="about.html" class="menu-item">브랜드 스토리</a>
+                <a href="results-guide.html" class="menu-item">은하계 가이드</a>
+                <a href="blog.html" class="menu-item">블로그</a>
+                <a href="polaris.html" class="menu-item">나만의 북극성 찾기</a>
+            </div>
         </div>
     </nav>
     <canvas id="stars-bg"></canvas>
@@ -241,6 +242,12 @@
             };
             drawStars();
         }
+    </script>
+    <script>
+        const nt = document.getElementById('nav-toggle');
+        const nm = document.getElementById('nav-menu');
+        nt.addEventListener('click', (e) => { e.stopPropagation(); nm.classList.toggle('active'); });
+        document.addEventListener('click', (e) => { if (!nm.contains(e.target)) nm.classList.remove('active'); });
     </script>
 </body>
 </html>

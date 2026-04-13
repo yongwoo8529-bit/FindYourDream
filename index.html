@@ -385,12 +385,15 @@
     <div class="page-wrapper">
         <nav class="top-nav">
             <a href="index.html" class="nav-logo">POLARIS</a>
-            <div class="nav-links">
-                <a href="about.html"></a>
-                <a href="results-guide.html"></a>
-                <a href="blog.html"></a>
-                <a href="polaris.html"></a>
-                <a href="privacy.html"></a>
+            <button id="nav-toggle" class="nav-btn">NAVIGATE</button>
+            
+            <div id="nav-menu" class="nav-overlay">
+                <div class="nav-menu-content">
+                    <a href="about.html" class="menu-item">브랜드 스토리</a>
+                    <a href="results-guide.html" class="menu-item">은하계 가이드</a>
+                    <a href="blog.html" class="menu-item">블로그</a>
+                    <a href="polaris.html" class="menu-item">나만의 북극성 찾기</a>
+                </div>
             </div>
         </nav>
 
@@ -628,6 +631,28 @@
         initBG();
         animateBG();
         animateParticles();
+    </script>
+    <script>
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking items
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
     </script>
 </body>
 </html>
