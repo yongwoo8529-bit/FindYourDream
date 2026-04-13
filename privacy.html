@@ -56,11 +56,70 @@
         .footer-link:hover {
             color: #fff;
         }
+    <style>
+        /* [Navigation] */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            max-width: 800px;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 100;
+            background: rgba(4, 10, 24, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .nav-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 2px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4080ff;
+        }
+
+        .nav-links a.active {
+            color: #fff;
+            font-weight: 700;
+        }
     </style>
   <link rel="stylesheet" crossorigin href="./assets/style-2c69d0Vr.css">
 </head>
 <body>
-    <!-- Navbar will be injected or added here -->
+    <nav class="top-nav">
+        <a href="index.html" class="nav-logo">POLARIS</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">Story</a>
+            <a href="results-guide.html">Guide</a>
+            <a href="blog.html">Blog</a>
+            <a href="polaris.html">Polaris</a>
+            <a href="privacy.html" class="active">Privacy</a>
+        </div>
+    </nav>
     
     <div class="container">
         <h1>개인정보 처리방침</h1>
