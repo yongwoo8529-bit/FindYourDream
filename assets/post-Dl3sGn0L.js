@@ -83,4 +83,20 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              */const a
             <p>내향적인 성격을 억지로 바꾸려 하기보다, 그 특성이 빛나는 환경을 선택하고 만드는 것이 더 현명합니다. 소수와 깊게 교류하는 방식, 글이나 작품으로 자신을 표현하는 것 등이 내향적인 사람에게 잘 맞습니다.</p>
 
             <p>당신의 조용함은 약점이 아닙니다. 그것은 깊이의 다른 이름입니다. POLARIS 성향 테스트를 통해 내향적인 나만의 강점을 더 구체적으로 탐색해보세요.</p>
-        `},6:{title:"글 6",content:""},7:{title:"글 7",content:""},8:{title:"글 8",content:""},9:{title:"글 9",content:""},10:{title:"글 10",content:""}},c=new URLSearchParams(window.location.search),l=c.get("id")||1,p=a[l];p?(document.getElementById("post-title").innerText=p.title,document.getElementById("post-content").innerHTML=p.content,document.title=`POLARIS - ${p.title}`):document.getElementById("post-title").innerText="포스트를 찾을 수 없습니다.";const e=document.getElementById("stars-bg"),n=e.getContext("2d");let h=[];const o=()=>{e.width=window.innerWidth,e.height=window.innerHeight};window.addEventListener("resize",o);o();class r{constructor(){this.x=Math.random()*e.width,this.y=Math.random()*e.height,this.size=Math.random()*1.5,this.opacity=Math.random(),this.blink=.005+Math.random()*.01}draw(){this.opacity+=this.blink,(this.opacity>1||this.opacity<0)&&(this.blink*=-1),n.fillStyle=`rgba(255,255,255,${Math.max(0,this.opacity)})`,n.beginPath(),n.arc(this.x,this.y,this.size,0,Math.PI*2),n.fill()}}for(let t=0;t<200;t++)h.push(new r);function s(){n.clearRect(0,0,e.width,e.height),h.forEach(t=>t.draw()),requestAnimationFrame(s)}s();const d=document.getElementById("nav-toggle"),i=document.getElementById("nav-menu");d.addEventListener("click",t=>{t.stopPropagation(),i.classList.toggle("active")});document.addEventListener("click",t=>{i.contains(t.target)||i.classList.remove("active")});
+        `},6:{title:"글 6. 실패를 두려워하는 청소년에게",content:`
+            <p>처음 자전거를 배울 때 넘어지지 않은 사람은 없습니다. 처음 수영을 배울 때 물을 먹지 않은 사람도 없습니다. 새로운 것을 배우는 과정에서 실패는 피할 수 없는 요소입니다. 그런데 왜 우리는 실패를 그토록 두려워할까요?</p>
+
+            <h2>실패 공포의 원인</h2>
+            <p>대부분의 경우, 실패에 대한 두려움은 실패 자체보다 '다른 사람들이 나를 어떻게 볼까'에 대한 두려움입니다. 특히 성적으로 평가받는 환경에서 자란 청소년들은 실패를 곧 자신의 가치 하락으로 연결 짓는 경향이 있습니다.</p>
+
+            <h2>실패를 바라보는 다른 시각</h2>
+            <p>실리콘밸리의 많은 기업들은 '빠르게 실패하라(Fail Fast)'를 핵심 문화로 삼습니다. 에디슨은 전구를 발명하기까지 수천 번의 실패를 했지만, 그것을 "전구가 켜지지 않는 수천 가지 방법을 발견한 것"이라고 표현했습니다.</p>
+
+            <h2>청소년기의 실패가 특히 중요한 이유</h2>
+            <p>청소년기는 인생에서 실패의 비용이 가장 낮은 시기입니다. 학교 발표에서 실수한 경험, 도전했다가 떨어진 경험 — 이 모든 것이 여러분을 더 단단하게 만드는 훈련입니다.</p>
+
+            <h2>실패 두려움 극복하기</h2>
+            <p>실패가 두렵다면, 먼저 '최악의 시나리오'를 구체적으로 생각해보세요. 막연히 두려운 것을 구체화하면 그것이 사실 그렇게 무서운 것이 아님을 깨닫게 됩니다. 완벽한 준비가 된 뒤에 도전하겠다는 생각은 영원히 도전하지 않겠다는 말과 같습니다.</p>
+
+            <p>실패는 끝이 아닙니다. 방향을 수정하라는 신호입니다.</p>
+        `},7:{title:"글 7",content:""},8:{title:"글 8",content:""},9:{title:"글 9",content:""},10:{title:"글 10",content:""}},c=new URLSearchParams(window.location.search),l=c.get("id")||1,n=a[l];n?(document.getElementById("post-title").innerText=n.title,document.getElementById("post-content").innerHTML=n.content,document.title=`POLARIS - ${n.title}`):document.getElementById("post-title").innerText="포스트를 찾을 수 없습니다.";const e=document.getElementById("stars-bg"),p=e.getContext("2d");let h=[];const o=()=>{e.width=window.innerWidth,e.height=window.innerHeight};window.addEventListener("resize",o);o();class r{constructor(){this.x=Math.random()*e.width,this.y=Math.random()*e.height,this.size=Math.random()*1.5,this.opacity=Math.random(),this.blink=.005+Math.random()*.01}draw(){this.opacity+=this.blink,(this.opacity>1||this.opacity<0)&&(this.blink*=-1),p.fillStyle=`rgba(255,255,255,${Math.max(0,this.opacity)})`,p.beginPath(),p.arc(this.x,this.y,this.size,0,Math.PI*2),p.fill()}}for(let t=0;t<200;t++)h.push(new r);function s(){p.clearRect(0,0,e.width,e.height),h.forEach(t=>t.draw()),requestAnimationFrame(s)}s();const d=document.getElementById("nav-toggle"),i=document.getElementById("nav-menu");d.addEventListener("click",t=>{t.stopPropagation(),i.classList.toggle("active")});document.addEventListener("click",t=>{i.contains(t.target)||i.classList.remove("active")});
