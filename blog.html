@@ -235,17 +235,17 @@
         <div class="post-selector">
             <h2 style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.7;">최신 글 목록</h2>
             <div class="selector-track" id="post-buttons">
-                <!-- Vertically stacked buttons -->
-                <a href="post.html?id=1" class="post-btn">글 1: 내가 좋아하는 것과 잘하는 것...</a>
-                <a href="post.html?id=2" class="post-btn">글 2: 준비 중입니다</a>
-                <a href="post.html?id=3" class="post-btn">글 3: 준비 중입니다</a>
-                <a href="post.html?id=4" class="post-btn">글 4: 준비 중입니다</a>
-                <a href="post.html?id=5" class="post-btn">글 5: 준비 중입니다</a>
-                <a href="post.html?id=6" class="post-btn">글 6: 준비 중입니다</a>
-                <a href="post.html?id=7" class="post-btn">글 7: 준비 중입니다</a>
-                <a href="post.html?id=8" class="post-btn">글 8: 준비 중입니다</a>
-                <a href="post.html?id=9" class="post-btn">글 9: 준비 중입니다</a>
-                <a href="post.html?id=10" class="post-btn">글 10: 준비 중입니다</a>
+                <!-- Cleaner button labels -->
+                <a href="post.html?id=1" class="post-btn">글 1: 내가 좋아하는 것과 잘하는 것</a>
+                <a href="post.html?id=2" class="post-btn">글 2</a>
+                <a href="post.html?id=3" class="post-btn">글 3</a>
+                <a href="post.html?id=4" class="post-btn">글 4</a>
+                <a href="post.html?id=5" class="post-btn">글 5</a>
+                <a href="post.html?id=6" class="post-btn">글 6</a>
+                <a href="post.html?id=7" class="post-btn">글 7</a>
+                <a href="post.html?id=8" class="post-btn">글 8</a>
+                <a href="post.html?id=9" class="post-btn">글 9</a>
+                <a href="post.html?id=10" class="post-btn">글 10</a>
             </div>
         </div>
     </header>
@@ -287,10 +287,16 @@
 
         .post-btn:hover {
             background: rgba(64, 128, 255, 0.15);
-            transform: translateY(-3px);
+            transform: translateY(-2px);
             border-color: #4080ff;
             color: #4080ff;
-            box-shadow: 0 10px 30px rgba(64, 128, 255, 0.1);
+        }
+
+        @media (max-width: 600px) {
+            .page-header h1 { font-size: 1.8rem !important; }
+            .header-hint { font-size: 12px; }
+            .post-selector { padding: 25px 15px; }
+            .post-btn { padding: 16px; font-size: 0.95rem; }
         }
     </style>
     
