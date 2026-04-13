@@ -135,4 +135,38 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              */const a
             <p>또한 자신이 어떤 것에 가치를 두는지 명확히 아는 것이 중요합니다. 내가 왜 이 일을 하는지, 이것이 나에게 어떤 의미가 있는지를 이해할 때 외부 압박으로 하는 것보다 훨씬 더 강한 동기를 갖게 됩니다.</p>
 
             <p>POLARIS 성향 테스트는 여러분이 어떤 가치와 욕구를 가진 사람인지 이해하는 데 도움을 줍니다. 내가 어떤 사람인지 알수록 더 나다운 선택을 할 수 있습니다.</p>
-        `},9:{title:"글 9",content:""},10:{title:"글 10",content:""}},c=new URLSearchParams(window.location.search),l=c.get("id")||1,n=a[l];n?(document.getElementById("post-title").innerText=n.title,document.getElementById("post-content").innerHTML=n.content,document.title=`POLARIS - ${n.title}`):document.getElementById("post-title").innerText="포스트를 찾을 수 없습니다.";const p=document.getElementById("stars-bg"),e=p.getContext("2d");let i=[];const o=()=>{p.width=window.innerWidth,p.height=window.innerHeight};window.addEventListener("resize",o);o();class r{constructor(){this.x=Math.random()*p.width,this.y=Math.random()*p.height,this.size=Math.random()*1.5,this.opacity=Math.random(),this.blink=.005+Math.random()*.01}draw(){this.opacity+=this.blink,(this.opacity>1||this.opacity<0)&&(this.blink*=-1),e.fillStyle=`rgba(255,255,255,${Math.max(0,this.opacity)})`,e.beginPath(),e.arc(this.x,this.y,this.size,0,Math.PI*2),e.fill()}}for(let t=0;t<200;t++)i.push(new r);function s(){e.clearRect(0,0,p.width,p.height),i.forEach(t=>t.draw()),requestAnimationFrame(s)}s();const d=document.getElementById("nav-toggle"),h=document.getElementById("nav-menu");d.addEventListener("click",t=>{t.stopPropagation(),h.classList.toggle("active")});document.addEventListener("click",t=>{h.contains(t.target)||h.classList.remove("active")});
+        `},9:{title:"글 9. 꿈이 없어도 괜찮은 이유",content:`
+            <p>"장래 희망이 뭐야?"</p>
+            <p>이 질문이 두려운 청소년들이 많습니다. 또래 친구들은 다들 확고한 꿈이 있는 것 같은데, 나만 아무것도 모르겠다는 생각이 들면 왠지 뒤처진 것 같고, 이상한 것 같은 느낌이 들기도 합니다.</p>
+            <p>하지만 오늘은 이 말을 드리고 싶습니다. 꿈이 없어도 괜찮습니다.</p>
+
+            <h2>꿈이 없는 것이 자연스러운 이유</h2>
+            <p>인간의 뇌는 25세가 되어서야 전두엽 발달이 완성됩니다. 전두엽은 미래를 계획하고, 자신에게 무엇이 중요한지를 판단하는 역할을 합니다. 즉, 10대에 확고한 꿈을 갖는 것 자체가 뇌 발달 관점에서 보면 이례적인 일입니다.</p>
+
+            <h2>'꿈이 있는 척'이 오히려 위험하다</h2>
+            <p>더 큰 문제는 꿈이 없다는 것이 부끄러운 것이라는 사회적 분위기 때문에, 실제로 확신이 없는데도 확신이 있는 척 살아가는 것입니다. 자신에게 맞지 않는 길을 수년간 고집하다가 뒤늦게 방향을 바꾸는 것이 더 많은 낭비가 됩니다.</p>
+
+            <h2>꿈 대신 가질 수 있는 것</h2>
+            <p>꿈 대신 '방향'을 갖는 것은 어떨까요? 나는 사람들과 함께하는 일을 좋아한다, 나는 혼자 깊게 집중하는 것이 편하다 등 방향성을 아는 것만으로도 충분합니다. 구체적인 직업명은 그 방향 안에서 자연스럽게 찾아집니다.</p>
+
+            <p>꿈은 찾는 것이 아니라 살아가면서 만들어지는 것입니다. 지금 꿈이 없다는 것은, 이제 막 시작되고 있다는 신호입니다.</p>
+        `},10:{title:"글 10. 나만의 북극성을 찾는 방법: 자기 이해의 5단계",content:`
+            <p>북극성은 밤하늘에서 항상 같은 자리를 지킵니다. 수천 년간 항해사들이 길을 잃었을 때 북극성을 보며 방향을 찾았습니다. 여러분의 삶에도 이런 북극성, 즉 어떤 상황에서도 흔들리지 않는 자신만의 방향이 있다면 어떨까요?</p>
+
+            <h2>1단계: 자신의 감정에 솔직해지기</h2>
+            <p>자기 이해의 첫 걸음은 자신이 느끼는 감정을 있는 그대로 인정하는 것입니다. 일기나 감정 기록을 통해 매일 자신의 감정 상태를 관찰하는 습관을 들여보세요.</p>
+
+            <h2>2단계: 나의 가치관 파악하기</h2>
+            <p>가치관은 내가 인생에서 중요하게 생각하는 것들입니다. 자유, 안정, 성취, 창의 등 나에게 가장 중요한 것이 무엇인지 생각해보세요.</p>
+
+            <h2>3단계: 강점과 약점 객관적으로 보기</h2>
+            <p>나의 강점을 파악하는 것은 자신감의 기초가 됩니다. 강점을 파악할 때는 '남들보다 뛰어난 것'이 아니라 '나에게 자연스럽고 즐거운 것'을 기준으로 삼으세요.</p>
+
+            <h2>4단계: 과거 경험에서 패턴 찾기</h2>
+            <p>지금까지 살아온 경험들을 돌아보면, 반복되는 패턴이 보입니다. 어떤 상황에서 에너지가 넘쳤는지 정리해보면 나의 성향이 더 명확해집니다.</p>
+
+            <h2>5단계: 다양한 경험을 통해 검증하기</h2>
+            <p>머릿속에서만 생각하지 말고 실제 경험을 통해 검증해야 합니다. 새로운 동아리, 봉사활동, 여행 등 다양한 경험이 자기 이해를 더욱 풍부하게 합니다.</p>
+
+            <p>POLARIS는 이 5단계 여정의 든든한 동반자가 되고 싶습니다. 나만의 북극성을 찾아가는 여정을 시작해보세요. 당신은 이미 충분히 빛나는 존재입니다.</p>
+        `}},c=new URLSearchParams(window.location.search),l=c.get("id")||1,h=a[l];h?(document.getElementById("post-title").innerText=h.title,document.getElementById("post-content").innerHTML=h.content,document.title=`POLARIS - ${h.title}`):document.getElementById("post-title").innerText="포스트를 찾을 수 없습니다.";const p=document.getElementById("stars-bg"),e=p.getContext("2d");let i=[];const o=()=>{p.width=window.innerWidth,p.height=window.innerHeight};window.addEventListener("resize",o);o();class r{constructor(){this.x=Math.random()*p.width,this.y=Math.random()*p.height,this.size=Math.random()*1.5,this.opacity=Math.random(),this.blink=.005+Math.random()*.01}draw(){this.opacity+=this.blink,(this.opacity>1||this.opacity<0)&&(this.blink*=-1),e.fillStyle=`rgba(255,255,255,${Math.max(0,this.opacity)})`,e.beginPath(),e.arc(this.x,this.y,this.size,0,Math.PI*2),e.fill()}}for(let t=0;t<200;t++)i.push(new r);function s(){e.clearRect(0,0,p.width,p.height),i.forEach(t=>t.draw()),requestAnimationFrame(s)}s();const d=document.getElementById("nav-toggle"),n=document.getElementById("nav-menu");d.addEventListener("click",t=>{t.stopPropagation(),n.classList.toggle("active")});document.addEventListener("click",t=>{n.contains(t.target)||n.classList.remove("active")});
